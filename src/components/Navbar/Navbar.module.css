@@ -2,7 +2,12 @@
     grid-area: nav;
     background-color: burlywood;
     padding: 20px;
+    margin-bottom: 50px;
   }
+
+.item {
+  margin-bottom: 10px;
+}
   
 .item a {
     color: white;
@@ -11,4 +16,9 @@
 
 .item a.active{
   color: forestgreen;
+}
+
+.friendsList {
+  background-color: rgb(219, 148, 97);
+  padding: 10px;
 }

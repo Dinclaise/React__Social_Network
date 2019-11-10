@@ -7,6 +7,10 @@
   padding: 15px;
 }
 
+.user {
+  grid-area: user;
+}
+
 .user a {
   text-decoration: none;
 }
@@ -18,4 +22,27 @@
 .messagesUsers {
   padding: 15px;
 }
-.message {}
+
+.message {
+  grid-area: message;
+  margin-bottom: 20px;
+}
+
+.imgTitle {
+  grid-area: img;
+}
+
+.imgTitle img{
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.friendsDialogs {
+  display: grid;
+
+  grid-template-areas: 'img user message';
+
+  grid-template-columns: 40px 2fr 4fr;
+  grid-template-rows: 40px;
+}

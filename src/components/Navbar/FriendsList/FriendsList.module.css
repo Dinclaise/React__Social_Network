@@ -1,0 +1,15 @@
+.myFriendsList {
+  padding: 10px;
+}
+
+.title {
+  margin-bottom: 30px;
+  font-weight: 700;
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+.title::after{
+  content: '+';
+  border-bottom: 1px solid gold;
+}
