@@ -7,7 +7,7 @@ import {addMessageCreator, updateNewMessageCreator} from '../../redux/dialogs-re
 
 
 const Dialogs = (props) => {
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let dialogsElements = state.dialogsData.map( d => <DialogsUsers name={d.name} id={d.id} img={d.img} />);
     let messagesElements = state.messagesData.map( mes => <Message message={mes.message} />);
@@ -15,13 +15,12 @@ const Dialogs = (props) => {
     
 
     let addMess = () => {
-        props.store.dispatch(addMessageCreator());
+        props.sendMessage();
     }
 
     let updateMessage = (event) => {
-        
         let message = event.target.value;
-        props.store.dispatch(updateNewMessageCreator(message));
+        props.updateNewMessage(message);
     }
 
 

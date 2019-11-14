@@ -1,6 +1,6 @@
 import React from 'react';
 import cls from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
@@ -9,9 +9,7 @@ const Profile = (props) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts post={props.profilePage.postData}
-               newPostText={props.profilePage.newPostText}
-               dispatch={props.dispatch} />
+      <MyPostsContainer />
     </div>
   )
 }
