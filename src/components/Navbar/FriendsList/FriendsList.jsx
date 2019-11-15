@@ -6,7 +6,7 @@ import Friends from './Friends/Friends';
 
 
 const FriendsList = (props) => {
-            // let state = props.store.getState().friendsPage;
+  
             let friendsElement = props.list.map( fl => <Friends name={fl.name} lastName={fl.lastName}
             id={fl.id} img={fl.img}/>);
 

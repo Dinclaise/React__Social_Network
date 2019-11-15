@@ -1,17 +1,10 @@
 import React from 'react';
 import cls from './Navbar.module.css';
 import {NavLink} from 'react-router-dom';
-import FriendsList from './FriendsList/FriendsList';
-import StoreContext from '../../StoreContext';
+import FriendsListContainer from './FriendsList/FriendsListContainer';
 
 const Navbar = (props) => {
   return (
-    <StoreContext.Consumer>
-    {
-      (store) => {
-        let state = store.getState().friendsPage;
-      
-          return ( 
             <div>
               <nav className={cls.nav}>
                 <div className={cls.item}><NavLink to="/profile" activeClassName={cls.active}>Profile</NavLink></div>
@@ -21,15 +14,12 @@ const Navbar = (props) => {
                 <div className={cls.item}><NavLink to="/settings" activeClassName={cls.active}>Settings</NavLink></div>
               </nav>
               <div className={cls.friendsList}>
-                <FriendsList list={state.friendsList}/>
+                <FriendsListContainer />
               </div>
           </div>
         )
-      }
-    }
-  </StoreContext.Consumer>
-  )
 }
+ 
 
 
 
