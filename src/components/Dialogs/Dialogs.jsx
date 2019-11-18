@@ -9,8 +9,8 @@ import {addMessageCreator, updateNewMessageCreator} from '../../redux/dialogs-re
 const Dialogs = (props) => {
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogsData.map( d => <DialogsUsers name={d.name} id={d.id} img={d.img} />);
-    let messagesElements = state.messagesData.map( mes => <Message message={mes.message} />);
+    let dialogsElements = state.dialogsData.map( d => <DialogsUsers key={d.id} name={d.name} id={d.id} img={d.img} />);
+    let messagesElements = state.messagesData.map( mes => <Message message={mes.message} key={mes.id}/>);
     ////////////////
     
 
