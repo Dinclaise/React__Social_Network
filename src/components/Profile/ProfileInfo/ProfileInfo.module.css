@@ -1,3 +1,29 @@
-.descriptionBlock {
-    padding: 20px;
+.blockProfile {
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "image"
+    "descr";
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
 }
+
+.imageBlock {
+    grid-area: image;
+}
+
+.aboutUser {
+    padding: 20px;
+    font-weight: bold;
+    grid-area: descr;
+}
+
+.aboutUser span {
+    margin-left: 20px;
+    font-style: italic;
+}
+

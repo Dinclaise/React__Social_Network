@@ -1,8 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 .app-wrapper {
   display: grid;
 
   margin: 0 auto;
-  width: 1200px;
+  max-width: 1200px;
   
   grid-template-areas: 
   "header header header"
@@ -16,4 +20,5 @@
 .app-wrapper-content {
   grid-area: content;
   background-color: chocolate;
+
 }
