@@ -3,7 +3,8 @@ import cls from './Profile.module.css';
 import Profile from './Profile'
 import {connect} from 'react-redux';
 import {getUserProfile} from './../../redux/profile-reducer';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
+
 
 
 class ProfileContainer extends React.Component {
@@ -15,6 +16,10 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
+        if (!this.props.isAuth) {
+            return <Redirect to="/login" />
+        }
+
         return (
             <Profile {...this.props} profile={this.props.profile}
                     statusUserProfile={this.props.statusUserProfile}/>
@@ -24,7 +29,8 @@ class ProfileContainer extends React.Component {
 
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
+    profile: state.profilePage.profile,
+    isAuth: state.auth.isAuth
 })
 
 

@@ -11,6 +11,7 @@ import Settings from './components/Settings/Settings';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login';
 
 const App = (props) => {
   return (
@@ -32,6 +33,8 @@ const App = (props) => {
                 <Route path='/news' render={() => <News />}/>
                 <Route path='/music' render={() => <Music />}/>
                 <Route path='/settings' render={() => <Settings />}/>
+
+                <Route path='/login' render={() => <Login />}/>
             </div>
 
             <Sidebar />

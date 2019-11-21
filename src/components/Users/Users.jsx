@@ -17,9 +17,11 @@ let Users = (props) => {
     return (
         <div>
                 <div>
-                    {pages.map( p => {
-                       return <span className={props.currentPage === p && cls.selectedPage}
-                       onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
+                    {pages.map( p => { 
+                        if (p < 13) {
+                            return <span className={props.currentPage === p && cls.selectedPage}
+                            onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
+                        }
                     })}
                 </div>
                 <div className={cls.userWrapper}>
@@ -42,7 +44,7 @@ let Users = (props) => {
                                 Follow</button> }
                         </div>
                         </div>
-                        {/* <span>
+                        <span>
                             <span>
                                 <div>{u.name}</div>
                                 <div>{u.status}</div>
@@ -51,7 +53,7 @@ let Users = (props) => {
                                 <div>{"u.location.country"}</div>
                                 <div>{"u.location.city"}</div>
                             </span>
-                        </span> */}
+                        </span>
                     </div>)
                     }
                 </div>
