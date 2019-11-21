@@ -1,3 +1,18 @@
+.userWrapper {
+    display: grid;
+
+    padding: 30px;
+
+    grid-template-areas: 
+    "card card card ";
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.userCard {
+    grid-area: card;
+}
+
 .userPhoto {
     width: 80px;
     height: 80px;

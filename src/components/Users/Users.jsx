@@ -2,6 +2,8 @@ import React from 'react';
 import cls from './Users.module.css'
 import boyPhoto from './../../assets/images/boy.png'
 import {NavLink} from 'react-router-dom';
+import * as axios from 'axios';
+import { userAPI } from '../../api/api';
 
 
 let Users = (props) => {
@@ -20,31 +22,39 @@ let Users = (props) => {
                        onClick={(e) => { props.onPageChanged(p) }}>{p}</span>
                     })}
                 </div>
-                { props.users.map( u => <div key={u.id}>
-                    <span>
+                <div className={cls.userWrapper}>
+                    { props.users.map( u => <div key={u.id}>
+                    <div className={cls.userCard}>
                         <div>
                             <NavLink to={'/profile/' + u.id}>
                             <img src={u.photos.small !=null ? u.photos.small : boyPhoto} className={cls.userPhoto}/>
                             </NavLink>
                         </div>
                         <div>
+                            
                             {u.followed
-                             ? <button onClick ={ () => {props.unfollow(u.id) } }>Unfollow</button>
-                            : <button onClick ={ () => {props.follow(u.id) } }>Follow</button> }
+                            ? <button disabled={props.followingInProgress.some(id => id === u.id) } 
+                                    onClick ={ () => { props.unfollow(u.id); }}>
+                                Unfollow</button> 
+
+                            : <button disabled={props.followingInProgress.some(id => id === u.id) } 
+                                    onClick ={ () => { props.follow(u.id); }}>
+                                Follow</button> }
                         </div>
-                    </span>
-                    <span>
-                        <span>
-                            <div>{u.name}</div>
-                            <div>{u.status}</div>
-                        </span>
-                        <span>
-                            <div>{"u.location.country"}</div>
-                            <div>{"u.location.city"}</div>
-                        </span>
-                    </span>
-                </div>)
-                }
+                        </div>
+                        {/* <span>
+                            <span>
+                                <div>{u.name}</div>
+                                <div>{u.status}</div>
+                            </span>
+                            <span>
+                                <div>{"u.location.country"}</div>
+                                <div>{"u.location.city"}</div>
+                            </span>
+                        </span> */}
+                    </div>)
+                    }
+                </div>
         </div>
     )
 }
