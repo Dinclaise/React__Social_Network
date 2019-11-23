@@ -12,12 +12,6 @@ let mapStateToProps = (state) => {
   }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//   return {
-  
-//   }
-// }
-
 const FriendsListContainer = connect(mapStateToProps)(FriendsList)
 
 export default FriendsListContainer

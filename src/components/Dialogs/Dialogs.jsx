@@ -7,10 +7,9 @@ import {addMessageCreator, updateNewMessageCreator} from '../../redux/dialogs-re
 
 
 const Dialogs = (props) => {
-    let state = props.dialogsPage;
-
-    let dialogsElements = state.dialogsData.map( d => <DialogsUsers key={d.id} name={d.name} id={d.id} img={d.img} />);
-    let messagesElements = state.messagesData.map( mes => <Message message={mes.message} key={mes.id}/>);
+    // let state = props.dialogsPage;
+    let dialogsElements = props.dialogsPage.map( d => <DialogsUsers  name={d.name} id={d.id} img={d.img} />);
+    let messagesElements = props.messagesData.map( mes => <Message message={mes.message} />);
     ////////////////
     
 
@@ -23,9 +22,9 @@ const Dialogs = (props) => {
         props.updateNewMessage(message);
     }
 
-    if (!props.isAuth) {
-        return <Redirect to="/login" />
-    }
+    // if (!props.isAuth) {
+    //     return <Redirect to="/login" />
+    // }
 
     return (
         <div className={cls.dialogs}>
@@ -39,7 +38,7 @@ const Dialogs = (props) => {
             <button onClick={ addMess }>Add Message</button>
             <textarea placeholder='Enter new message' 
                       onChange={ updateMessage }
-                      value={ state.newMessageText }/>
+                      value={ props.newMessageText }/>
         </div>
     )
 }
