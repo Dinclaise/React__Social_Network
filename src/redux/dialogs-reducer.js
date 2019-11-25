@@ -1,6 +1,6 @@
 
 const ADD_MESS = 'ADD-MESS';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+// const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
 
 let initialState = {
@@ -15,8 +15,8 @@ let initialState = {
       {id: 1, message: 'Hi!'},
       {id: 2, message: 'How are u feeling?'},
       {id: 3, message: 'It was cool!'}
-  ],
-  newMessageText: 'Bla-bla'
+  ]
+  // newMessageText: 'Bla-bla'  
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -24,12 +24,12 @@ const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_MESS: {
           let newMessage = {
-                message: state.newMessageText,
+                message: action.newMessageText,
                 id: 4
             };
 
             return {
-              ...state, newMessageText: '',
+              ...state,
               messagesData: [...state.messagesData, newMessage]
             }
             
@@ -38,28 +38,26 @@ const dialogsReducer = (state = initialState, action) => {
             // stateCopy.messagesData.push(newMessage)
             // stateCopy.newMessageText = '';
         }
-        case UPDATE_NEW_MESSAGE: {
-          return {
-              ...state, newMessageText: action.newTextMes
-          }
-            // stateCopy.newMessageText = action.newTextMes;
-        }
+        // case UPDATE_NEW_MESSAGE: {
+        //   return {
+        //       ...state, newMessageText: action.newTextMes
+        //   }
+        //     // stateCopy.newMessageText = action.newTextMes;
+        // }
         default:
             return state;
     }
 }
 
 
-export const addMessageCreator = () => {
-    return {
-      type: ADD_MESS
-    }
-  }
+export const addMessageCreator = (newMessageText) => ({type: ADD_MESS, newMessageText})
  
-export const updateNewMessageCreator = (message) => {
-    return {
-      type: UPDATE_NEW_MESSAGE, newTextMes: message
-    }
-  }
+// Больше не нужен после redux-form
+/* // export const updateNewMessageCreator = (message) => {
+//     return {
+//       type: UPDATE_NEW_MESSAGE, newTextMes: message
+//     }
+// }
+ */
 
 export default dialogsReducer;
