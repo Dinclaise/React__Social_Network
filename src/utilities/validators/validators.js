@@ -1,7 +1,7 @@
 export const required = value => {
     if(value) return undefined;
 
-    return "Error send post";
+    return "Error: Fill in the field";
 }
 
 export const maxLengthCreator = (maxLength) => (value) => {
