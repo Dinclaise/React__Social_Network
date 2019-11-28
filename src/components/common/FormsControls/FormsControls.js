@@ -2,14 +2,14 @@ import React from "react";
 import cls from './FormsControls.module.css';
 
 
-const FormControl = ({input, child, meta, ...props}) => {
-    const hasError = meta.touched && meta.error;
+const FormControl = ({input, meta: {touched, error}, ...props}) => {
+    const hasError = touched && error;
     return (
         <div className={`${cls.formControl} ${(hasError ? cls.error : "")}`}>
                 <div>
                     {props.children} 
                 </div>
-                { hasError && <span>{meta.error}</span> }
+                { hasError && <span>{error}</span> }
         </div>
     )
 }
@@ -27,3 +27,9 @@ export const Input = (props) => {
         <FormControl {...props}><input {...input} {...restProps} /></FormControl>
     )
 }
+
+
+// export const CreateField = () => {
+//     <Field placeholder={"Email"} name={"email"} component={Input}
+//                             validate={[required]} />
+// }

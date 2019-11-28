@@ -23,7 +23,7 @@ it('length of post should be incremented', () => {
   expect(newState.postData.length).toBe(4);
 });
 
-it('Length after delete must be correct, () => {
+it('Length after delete must be correct', () => {
   //1. test Data
   let action = deletePost(1);
   
